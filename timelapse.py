@@ -96,7 +96,7 @@ def timelapse(interval_secs, max_sim, min_brightness, skip_display=False):
             print(outline)
             if not skip:
                 previous = frame_grey
-                cv2.imwrite("/home/me8/Desktop/me134timelapse" + img_name, frame)
+                cv2.imwrite("/home/me8/Desktop/me134timelapse/out/" + img_name, frame)
 
     cam.release()
 
