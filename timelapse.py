@@ -96,10 +96,10 @@ def timelapse(interval_secs, max_sim, min_brightness, skip_display=False):
             print(outline)
             if not skip:
                 previous = frame_grey
-                cv2.imwrite("out/" + img_name, frame)
+                cv2.imwrite("/home/me8/Desktop/me134timelapse" + img_name, frame)
 
     cam.release()
 
 
 if __name__ == "__main__":
-    timelapse(1, max_sim=0.95, min_brightness=0.05, skip_display=False)
+    timelapse(30, max_sim=0.98, min_brightness=0.05, skip_display=True)
