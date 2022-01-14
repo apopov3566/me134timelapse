@@ -1,4 +1,4 @@
-import cv2, time, pause, imutils
+import cv2, time
 import numpy as np
 from skimage.metrics import structural_similarity as compare_ssim
 
@@ -17,8 +17,6 @@ def timelapse(interval_secs, max_sim, min_brightness, skip_display=False):
     while True:
         t = time.time()
         t_next = previous_time - (previous_time % interval_secs) + interval_secs
-        if skip_display:
-            pause.until(t_next)
 
         ret, frame = cam.read()
         npixels = frame.shape[0] * frame.shape[1]
@@ -69,7 +67,7 @@ def timelapse(interval_secs, max_sim, min_brightness, skip_display=False):
                 print("Escape hit, closing...")
                 break
 
-        if skip_display or t > t_next:
+        if t > t_next:
             previous_time = int(t_next)
             img_name = str(t_next) + ".png"
             outline = (
