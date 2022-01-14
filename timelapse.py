@@ -5,6 +5,8 @@ from skimage.metrics import structural_similarity as compare_ssim
 
 def timelapse(interval_secs, max_sim, min_brightness, skip_display=False):
     cam = cv2.VideoCapture(0)
+    cam.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+    cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
     if not skip_display:
         cv2.namedWindow("test")
@@ -100,4 +102,4 @@ def timelapse(interval_secs, max_sim, min_brightness, skip_display=False):
 
 
 if __name__ == "__main__":
-    timelapse(1, max_sim=0.95, min_brightness=0.05, skip_display=True)
+    timelapse(1, max_sim=0.95, min_brightness=0.05, skip_display=False)
